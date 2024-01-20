@@ -11,4 +11,4 @@ px10000
 3160.125413293809 // 10000 pixel time
 ```
 
-final result was 316.0125413293809
+final result was: 316.0125413293809 milliseconds 
