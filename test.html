@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Dates</h1>
+<h2>The getMilliseconds() Method</h2>
+
+<p>getMilliseconds() returns the milliseconds of a date:</p>
+
+
+<button id="t">scroll</button>
+<div id="x" style="margin-top: 1000px;">Hello world</div>
+<p id="demo"></p>
+<script>
+
+var scrollTimeout;
+let stillScroll = false;
+let n;
+
+
+
+
+
+const tBtn = document.getElementById("t");
+const xE = document.getElementById("x");
+
+let start = 0;
+let end = 0;
+let res = 0;
+
+
+tBtn.addEventListener("click", ()=>{
+   start = new Date().getTime();
+   xE.scrollIntoView({behavior: 'smooth'});
+   
+});
+let results = [];
+let can
+addEventListener('scroll', function(e) {
+    stillScroll = true;
+    end = new Date().getTime();
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(function() {
+        stillScroll = false;        
+        clearTimeout(n);
+        n = setTimeout(function() {
+          if (!stillScroll){
+            
+            res = end - start;
+            results.push(res);
+            console.log(`Start:${start} , End: ${end} , Dif_target: ${res} miliseconds`);
+            if (results.length > 1){
+               console.log('takes:', results.reduce((a,b)=>{return a+b}, 0)/results.length);
+            }
+            window.scrollTo(0,0);
+            console.log(results);
+            tBtn.click();
+            
+          }
+        },20);
+    });
+});
+
+
+
+
+
+</script>
+
+</body>
+</html>
